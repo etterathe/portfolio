@@ -25,7 +25,7 @@ export default function Intro() {
             <span className=' block text-slate-600 font-normal text-2xl'>AI/ML Engineer based in Poland.</span>
             </span>
         </h1>
-        <p className='mb-10 mt-3 px-4 text-slate-750 text-[1rem] md:text-xl'>I translate business needs into aesthetic and intuitive data products. Currently, I am helping with the implementation and integration of machine learning models into ERP systems.</p>
+        <p className='mb-10 mt-3 px-4 text-slate-750 text-[1rem] md:text-xl'>I translate business needs into aesthetic and intuitive data products. <br /> Currently, I am helping with the implementation and integration of machine learning models into ERP systems.</p>
 
         <motion.div className='flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-md font-medium'
                     initial={{opacity: 0, scale: 0}}
