@@ -33,7 +33,7 @@ export default function Intro() {
                     transition={{
                         delay: 0.1,
                     }}>
-            <Link href="mailto:w.rapacz@protonmail.com" className='group bg-slate-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:bg-slate-950 active:scale-105 transition'>Contact me <BsArrowRight className='opacity-80 group-hover:translate-x-1 transition'/></Link>
+            <Link href="#contact" className='group bg-slate-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:bg-slate-950 active:scale-105 transition'>Contact me <BsArrowRight className='opacity-80 group-hover:translate-x-1 transition'/></Link>
             <a className='bg-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border border-black/10' href='https://linkedin.com' target='_blank'> <BsLinkedin /></a>
             <a className='bg-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border border-black/10' href='https://github.com' target='_blank'> <BsGithub /></a>
         </motion.div>
