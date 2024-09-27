@@ -18,8 +18,8 @@ export default function About() {
     id="about"
     >
         <SectionHeading>About me</SectionHeading>
-        <p className='mb-4'>I am an artificial intelligence engineer with a passion for creating innovative machine learning models and contributing to the development of robust MLOps platforms. My focus is now directed on leveraging language models to enhance enterprise systems, driving efficiency and intelligence in business operations.</p>
-        <p>Beyond my professional work, I have a deep interest in exploring unconventional ideas in philosophy, music, and art. As a developer, I often collaborate with friends to develop indie games and applications in an open-source environment.</p>
+        <p className='mb-4'>I am an artificial intelligence engineer with a passion for creating practical, domain knowledge driven solutions following best MLOps practices. Currently, I focus on leveraging language models and knowledge graphs to enhance enterprise systems, driving efficiency in business operations. My ambition is to become a T-shaped developer, continuously experimenting with new ideas and technologies. I believe that creating an intelligent system also requires thoughtful design.</p>
+        <p>Beyond my professional work, I have a deep interest in exploring unconventional ideas in philosophy, music, and art. When I'm not immersed in them, you can find me curled up with a good book and my cats or playing and developing indie games with my friends.</p>
     </motion.section>
   )
 }

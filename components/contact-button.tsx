@@ -1,5 +1,10 @@
 "use client";
-import { useMotionValue, animate, motion, AnimatePresence } from "framer-motion";
+import {
+  useMotionValue,
+  animate,
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useMotionTemplate } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -21,7 +26,11 @@ export const ContactCard = ({
   const [revealProgress, setRevealProgress] = useState(0);
   const [isFullyRevealed, setIsFullyRevealed] = useState(false);
 
-  function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) {
+  function onMouseMove({
+    currentTarget,
+    clientX,
+    clientY,
+  }: React.MouseEvent<HTMLDivElement>) {
     let { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -54,7 +63,7 @@ export const ContactCard = ({
     <div
       className={cn(
         "p-0.5 bg-transparent aspect-square flex items-center justify-center w-full h-full relative",
-        className
+        className,
       )}
     >
       <div
@@ -77,10 +86,13 @@ export const ContactCard = ({
         />
         <AnimatePresence>
           {!isFullyRevealed && (
-            <motion.div 
+            <motion.div
               className="relative z-10 flex items-center justify-center"
               initial={{ scale: 1, opacity: 1 }}
-              animate={{ scale: 1 - revealProgress / 100, opacity: 1 - revealProgress / 100 }}
+              animate={{
+                scale: 1 - revealProgress / 100,
+                opacity: 1 - revealProgress / 100,
+              }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
@@ -98,8 +110,20 @@ export const ContactCard = ({
   );
 };
 
-export function CardPattern({ mouseX, mouseY, email, revealProgress, isFullyRevealed }: { mouseX: any; mouseY: any; email: string; revealProgress: number; isFullyRevealed: boolean }) {
-  let maskImage = useMotionTemplate`radial-gradient(${isFullyRevealed ? '1000px' : revealProgress * 5 + 250 + 'px'} at ${mouseX}px ${mouseY}px, white, transparent)`;
+export function CardPattern({
+  mouseX,
+  mouseY,
+  email,
+  revealProgress,
+  isFullyRevealed,
+}: {
+  mouseX: any;
+  mouseY: any;
+  email: string;
+  revealProgress: number;
+  isFullyRevealed: boolean;
+}) {
+  let maskImage = useMotionTemplate`radial-gradient(${isFullyRevealed ? "1000px" : revealProgress * 5 + 250 + "px"} at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
