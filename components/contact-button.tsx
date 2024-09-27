@@ -25,18 +25,43 @@ export const ContactCard = ({
   const [isPressed, setIsPressed] = useState(false);
   const [revealProgress, setRevealProgress] = useState(0);
   const [isFullyRevealed, setIsFullyRevealed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Adjust this breakpoint as needed
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsFullyRevealed(true);
+      setRevealProgress(100);
+    } else {
+      setIsFullyRevealed(false);
+      setRevealProgress(0);
+    }
+  }, [isMobile]);
 
   function onMouseMove({
     currentTarget,
     clientX,
     clientY,
   }: React.MouseEvent<HTMLDivElement>) {
+    if (isMobile) return;
     let { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
 
   useEffect(() => {
+    if (isMobile) return;
+
     let animation: any;
     if (isPressed && !isFullyRevealed) {
       animation = animate(0, 100, {
@@ -57,7 +82,7 @@ export const ContactCard = ({
     }
 
     return () => animation?.stop();
-  }, [isPressed, isFullyRevealed]);
+  }, [isPressed, isFullyRevealed, isMobile]);
 
   return (
     <div
@@ -68,13 +93,14 @@ export const ContactCard = ({
     >
       <div
         onMouseMove={onMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => !isMobile && setIsHovered(true)}
         onMouseLeave={() => {
+          if (isMobile) return;
           setIsHovered(false);
           if (!isFullyRevealed) setIsPressed(false);
         }}
-        onMouseDown={() => !isFullyRevealed && setIsPressed(true)}
-        onMouseUp={() => !isFullyRevealed && setIsPressed(false)}
+        onMouseDown={() => !isMobile && !isFullyRevealed && setIsPressed(true)}
+        onMouseUp={() => !isMobile && !isFullyRevealed && setIsPressed(false)}
         className="group/card rounded-3xl w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full"
       >
         <CardPattern
@@ -83,9 +109,10 @@ export const ContactCard = ({
           email={email}
           revealProgress={revealProgress}
           isFullyRevealed={isFullyRevealed}
+          isMobile={isMobile}
         />
         <AnimatePresence>
-          {!isFullyRevealed && (
+          {!isFullyRevealed && !isMobile && (
             <motion.div
               className="relative z-10 flex items-center justify-center"
               initial={{ scale: 1, opacity: 1 }}
@@ -116,14 +143,18 @@ export function CardPattern({
   email,
   revealProgress,
   isFullyRevealed,
+  isMobile,
 }: {
   mouseX: any;
   mouseY: any;
   email: string;
   revealProgress: number;
   isFullyRevealed: boolean;
+  isMobile: boolean;
 }) {
-  let maskImage = useMotionTemplate`radial-gradient(${isFullyRevealed ? "1000px" : revealProgress * 5 + 250 + "px"} at ${mouseX}px ${mouseY}px, white, transparent)`;
+  let maskImage = useMotionTemplate`radial-gradient(${
+    isMobile || isFullyRevealed ? "1000px" : revealProgress * 5 + 250 + "px"
+  } at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
