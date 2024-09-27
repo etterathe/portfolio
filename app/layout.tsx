@@ -19,18 +19,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-      </head>
-      <body className={`${inter.className} bg-slate-50 text-gray-950 relative pt-28 sm:pt-36`}>
-      <div className='bg-[#dbf7e5] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] '></div>
-        <div className='bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[35rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] '></div>
+      <head></head>
+      <body
+        className={`${inter.className} bg-slate-50 text-gray-950 relative pt-28 sm:pt-36`}
+      >
+        <div className="absolute top-0 left-0 right-0 bottom-0 -z-10 overflow-hidden">
+          <div
+            className="absolute top-0 -right-1/4 bg-[#dbf7e5] w-1/2 h-1/2 max-w-[31.25rem] max-h-[31.25rem] rounded-full blur-[10rem]
+          sm:w-3/4 sm:h-3/4 sm:max-w-[68.75rem] sm:max-h-[68.75rem]
+          transform -translate-y-1/4"
+          ></div>
+          <div
+            className="absolute top-0 -left-1/4 bg-[#dbd7fb] w-1/2 h-1/2 max-w-[31.25rem] max-h-[31.25rem] rounded-full blur-[10rem]
+          sm:w-3/4 sm:h-3/4 sm:max-w-[68.75rem] sm:max-h-[68.75rem]
+          transform -translate-y-1/4"
+          ></div>
+        </div>
         <ActiveSectionContextProvider>
-        <Header />
-        {children} 
-        <Footer />
+          <Header />
+          {children}
+          <Footer />
         </ActiveSectionContextProvider>
-        </body>
+      </body>
     </html>
   );
 }
