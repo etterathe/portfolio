@@ -29,7 +29,7 @@ export const ContactCard = ({
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust this breakpoint as needed
+      setIsMobile(window.innerWidth < 768);
     };
 
     checkIfMobile();
@@ -65,7 +65,7 @@ export const ContactCard = ({
     let animation: any;
     if (isPressed && !isFullyRevealed) {
       animation = animate(0, 100, {
-        duration: 0.55,
+        duration: 0.3,
         onUpdate: (latest) => {
           setRevealProgress(latest);
           if (latest === 100) {
@@ -76,7 +76,7 @@ export const ContactCard = ({
       });
     } else if (!isPressed && !isFullyRevealed) {
       animation = animate(revealProgress, 0, {
-        duration: 0.5,
+        duration: 0.3,
         onUpdate: (latest) => setRevealProgress(latest),
       });
     }
@@ -121,9 +121,9 @@ export const ContactCard = ({
                 opacity: 1 - revealProgress / 100,
               }}
               exit={{ scale: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
             >
-              <div className="relative h-44 w-44 rounded-full flex items-center justify-center text-white font-bold text-4xl">
+              <div className="relative h-40 w-40 rounded-full flex items-center justify-center text-white font-bold text-4xl">
                 <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full" />
                 <span className="dark:text-white text-black z-20">
                   {isHovered ? "press" : text}

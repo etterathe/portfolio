@@ -40,12 +40,8 @@ export default function Contact() {
         </span>{" "}
         or by using code below.
       </p>
-      <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start justify-center mx-auto p-2 h-[30rem] cursor-pointer">
-        <ContactCard
-          className="mt-10"
-          text="contact"
-          email="w.rapacz@protonmail.com"
-        />
+      <div className="flex flex-col items-start justify-center mx-auto p-2 cursor-pointer mt-10">
+        <ContactCard text="contact" email="w.rapacz@protonmail.com" />
       </div>
     </section>
   );
