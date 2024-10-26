@@ -30,8 +30,8 @@ export default function Intro() {
           >
             👋
           </motion.span>{" "}
-          Hi, I'm Wiktor.
-          <span className=" block text-slate-600 font-normal text-2xl">
+          <span className="whitespace-nowrap">Hi, I'm Wiktor.</span>
+          <span className="block text-slate-600 font-normal text-2xl">
             AI/ML Engineer based in Poland.
           </span>
         </span>
@@ -57,14 +57,14 @@ export default function Intro() {
           Contact me{" "}
           <BsArrowRight className="opacity-80 group-hover:translate-x-1 transition" />
         </Link>
-        <a
+        {/* <a
           className="bg-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border border-black/10"
           href="https://www.linkedin.com/in/wrapacz/"
           target="_blank"
         >
           {" "}
           <BsLinkedin />
-        </a>
+        </a> */}
         <a
           className="bg-white p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border border-black/10"
           href="https://github.com/etterathe"
