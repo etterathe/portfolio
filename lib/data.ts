@@ -93,7 +93,7 @@ export const projectsData = [
     title: "🔮 medium",
     description:
       "Chat with your SQL databases and discover world of new insights. Natural language to SQL translation.",
-    tags: ["Python", "Streamlit", "NLP", "NL2SQL"],
+    tags: ["Python", "Streamlit", "NLP"],
     imageUrl: mediumImg,
     projectUrl: "https://github.com/etterathe/medium",
   },
