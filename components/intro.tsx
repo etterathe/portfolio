@@ -38,8 +38,7 @@ export default function Intro() {
       </h1>
       <p className="mb-10 mt-3 px-4 text-slate-750 text-[1rem] md:text-xl">
         I translate business needs into intuitive AI products. <br /> Currently,
-        I am helping with the implementation and integration of machine learning
-        models into ERP systems.
+        I am interrogating data to make it tell the truth at EUVIC.
       </p>
 
       <motion.div
