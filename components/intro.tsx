@@ -37,8 +37,7 @@ export default function Intro() {
         </span>
       </h1>
       <p className="mb-10 mt-3 px-4 text-slate-750 text-[1rem] md:text-xl">
-        I translate business needs into intuitive AI products. <br /> Currently,
-        I am interrogating data to make it tell the truth at EUVIC.
+        I translate business needs into intuitive AI products. <br /> 
       </p>
 
       <motion.div
